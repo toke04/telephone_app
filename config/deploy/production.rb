@@ -1,3 +1,5 @@
+server '3.113.53.220', user: 'root', roles: %w{app db web}
+
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.

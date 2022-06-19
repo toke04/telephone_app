@@ -2,7 +2,33 @@
 lock "~> 3.17.0"
 
 set :application, "telephone_app"
-set :repo_url, "git@example.com:me/my_repo.git"
+set :repo_url, "git@github.com:syo-tokeshi/telephone_app.git"
+
+# sharedディレクトリに入れるファイルを指定
+append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system", "public/uploads"
+
+# 保存しておく世代の設定
+set :keep_releases, 3
+
+# rbenvの設定
+set :rbenv_type, :user
+set :rbenv_ruby, '3.1.2'
+
+# ここからUnicornの設定
+# Unicornのプロセスの指定
+set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
+
+# Unicornの設定ファイルの指定
+set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
+
+# Unicornを再起動するための記述
+after 'deploy:publishing', 'deploy:restart'
+namespace :deploy do
+  task :restart do
+    invoke 'unicorn:restart'
+  end
+end
+
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp

@@ -77,6 +77,8 @@ group :test do
   gem "webdrivers"
 end
 
+gem "unicorn"
+
 # ログイン機能
 gem 'devise'
 
