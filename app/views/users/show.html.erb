@@ -1,0 +1,6 @@
+<h1 class="text-danger">ユーザー詳細</h1>
+<p>ユーザー名：<%= @user.name %></p>
+<p>内線番号<%= @user.src %></p>
+<p>email:<%= @user.email %></p>
+  <p><%= link_to "戻る", users_path(@user) %></p>
+  <p><%= link_to "ログアウトする", destroy_user_session_path(),method: :delete,data: {confirm: "ログアウトして大丈夫ですか?"}  %></p>
