@@ -1,4 +1,33 @@
-server '3.113.53.220', user: 'root', roles: %w{app db web}
+# set :stage, :production
+# set :rails_env, 'production'
+# server '3.113.53.220', user: 'root', roles: %w{app db web}
+server '3.113.53.220', user: 'ec2-user', roles: %w{app db web}
+# server '3.113.53.220',
+#   user: 'root',
+#   roles: %w{web app},
+#   ssh_options: {
+#     user: 'root', # overrides user setting above
+#     keys: %w(~/.ssh/id_rsa),
+#     forward_agent: false,
+#     auth_methods: %w(publickey password)
+#     # password: 'please use keys'
+#   }
+# set :ssh_options, {
+#   auth_methods: [ 'publickey' ],
+#   keys:         [ '~/.ssh/aws.pem' ],
+# }
+# set :branch, "master"
+# deploy先のサーバー情報
+# role :web, %w{ec2-user@3.113.53.220}
+# deployするディレクトリの場所
+# set :deploy_to, '/home/user/source'
+# deployするディレクトリの場所
+# set :deploy_to, '/var/www/telephone_app'
+
+
+# set :ssh_options, {
+#  keys: [File.expand_path('~/.ssh/aws_ec2_tokeshi_key.pem)')]
+# }
 
 # server-based syntax
 # ======================
