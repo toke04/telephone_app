@@ -1,24 +1,38 @@
-# README
+# telephoneについて
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+その名の通り、電話が出来るアプリです。
+asterisk & rails & mysql で作りました。
+asteriskに馴染みが無い方が多いと思うので、軽くURL貼っておきます
+https://www.asterisk.org/get-started/
+# DEMO
 
-Things you may want to cover:
+<img width="1057" alt="スクリーンショット 2022-06-25 19 09 03" src="https://user-images.githubusercontent.com/54713809/175769027-a2a15200-3549-4e95-8ed5-4be0d821d241.png">
 
-* Ruby version
+# Features
 
-* System dependencies
+1. 無料で電話が出来ます
+2. 音楽も聞けます
+3. シンプルで使いやすいアプリです
 
-* Configuration
+# Strong point
 
-* Database creation
+1. ほとんどの人がこのようなアプリを見たことがないと思います。
+2. asteriskについては情報も少ないので、作ろうと思っても簡単に作れないと思います。
+3. railsやmysqlと連携させるのも一苦労すると思われます。
 
-* Database initialization
+# Requirement
 
-* How to run the test suite
+* ruby 3.1.2
+* rails 7.0.3
+* mysql 8.0.29
+* asterisk 18.12.1
 
-* Services (job queues, cache servers, search engines, etc.)
+# Usage
 
-* Deployment instructions
+当アプリの使い方は、こちらにまとめました
+https://qiita.com/toketoke/private/c4a1b10508898dc4bf6d
 
-* ...
+# Author
+
+* syo-tokeshi
+* flask8689@gmail.com
