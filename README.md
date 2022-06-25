@@ -3,7 +3,7 @@
 URL : https://telephone.tokeshi.cf/  
 
 その名の通り、電話が出来るアプリです。  
-* asterisk & rails & mysql で作りました。  
+* asterisk & rails & mysql & aws で作りました。  
 
 asteriskに馴染みが無い方が多いと思うので、軽くURL貼っておきます  
 https://www.asterisk.org/get-started/
@@ -30,6 +30,7 @@ https://www.asterisk.org/get-started/
 * rails 7.0.3
 * mysql 8.0.29
 * asterisk 18.12.1
+* インフラ aws(EC2)
 
 # Usage
 
