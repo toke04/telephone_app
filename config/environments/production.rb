@@ -8,7 +8,8 @@ Rails.application.configure do
   host = 'localhost'
   Rails.application.routes.default_url_options[:host] = host
   config.hosts.clear
-  config.force_ssl = true # ssl通信を強制する
+  # config.force_ssl = true # ssl通信を強制する
+  config.require_master_key = true
 
   config.cache_classes = false
 
