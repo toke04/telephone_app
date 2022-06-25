@@ -51,5 +51,5 @@ test:
 production:
   <<: *default
   database: telephone_app_production
-  username: telephone_app
-  password: <%= ENV["TELEPHONE_APP_DATABASE_PASSWORD"] %>
+  username: <%= ENV['DATABASE_USER'] %>
+  password: <%= ENV['DATABASE_PASS'] %>
