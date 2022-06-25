@@ -30,6 +30,7 @@ https://www.asterisk.org/get-started/
 * rails 7.0.3
 * mysql 8.0.29
 * asterisk 18.12.1
+* Fail2Ban 0.11.2
 * インフラ aws(EC2)
 
 # Usage
