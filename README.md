@@ -1,9 +1,12 @@
 # telephoneについて
 
-その名の通り、電話が出来るアプリです。
-asterisk & rails & mysql で作りました。
-asteriskに馴染みが無い方が多いと思うので、軽くURL貼っておきます
+URL : https://telephone.tokeshi.cf/  
+
+その名の通り、電話が出来るアプリです。  
+* asterisk & rails & mysql で作りました。  
+asteriskに馴染みが無い方が多いと思うので、軽くURL貼っておきます  
 https://www.asterisk.org/get-started/
+
 # DEMO
 
 <img width="1057" alt="スクリーンショット 2022-06-25 19 09 03" src="https://user-images.githubusercontent.com/54713809/175769027-a2a15200-3549-4e95-8ed5-4be0d821d241.png">
