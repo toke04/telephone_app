@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  root "homes#index" #説明ページがrootパス
   devise_for :users, :controllers => {
   :registrations => 'users/registrations',
   :sessions => 'users/sessions'   
@@ -10,10 +12,11 @@ devise_scope :user do
   get "login", :to => "users/sessions#new"
   get "logout", :to => "users/sessions#destroy"
 end
-  resources :users, :only => [:index, :show]
-  root "users#index"
+  resources :users, :only => [:index,:show,:autocall]
    get 'users/index'
    get 'users/show'
+   get 'users/autocall/:id' => "users#autocall"
+   get 'users/stop_autocall/:id' => "users#stop_autocall"
   # devise_for :users
 
   ## 開発環境用letter_opener

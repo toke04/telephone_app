@@ -3,37 +3,51 @@
   <head>
     <title>Telephone</title>
     <%= csrf_meta_tags %>
-    <%= stylesheet_pack_tag    'application' %>
-   <%= javascript_pack_tag    'application' %>
+    <%= csp_meta_tag %>    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content="width=device-width,initial-scale=1">
   </head>
   <body>
    <header>
-  <nav class="container navbar navbar-expand navbar-light">
-    <%= link_to "ユーザー一覧", users_path, class: 'navbar-brand' %>
-    <div id="Navber">
-      <ul class="navbar-nav">
-        <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to 'マイページ',users_show_path(@user), class: 'nav-link' %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link' %>
-          </li>
-      <% else %>
-          <li class="nav-item active">
-            <%= link_to "新規登録", new_user_registration_path, class: 'nav-link' %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to "ログイン", new_user_session_path, class: 'nav-link' %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  </nav>
-</header>
+
+     <%# bootstrapでナビバーを作成。ログイン中かどうかで表示、非表示を変える %>
+     <nav class="container navbar navbar-expand navbar-light">
+        <a href="https://telephone.tokeshi.cf/">
+          <img src="/app/assets/images/logo.png" width="100" height="100">
+        </a>
+        <%= link_to "アプリ紹介", root_path, class: 'navbar-brand' %>
+        <%= link_to "ユーザー一覧", users_path, class: 'navbar-brand' %>
+        <div id="Navber">
+          <ul class="navbar-nav">
+        <div id="Navber">
+          <ul class="navbar-nav">
+            <% if user_signed_in? %> <%# ログイン中だったらマイページへのリンクを表示 %>
+              <li class="nav-item active navbar-brand">
+                <%= link_to 'マイページ',users_show_path(@user), class: 'nav-link fw-bold' %>
+              </li>
+              <li class="nav-item active navbar-brand">
+                <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+              </li>
+            <% else %> <%# ログインでなければ、新規登録かログインしてもらう %>
+              <li class="nav-item active">
+                <%= link_to "新規登録", new_user_registration_path, class: 'nav-link navbar-brand fw-bold'  %>
+              </li>
+              <li class="nav-item active">
+                <%= link_to "ログイン", new_user_session_path, class: 'nav-link navbar-brand fw-bold' %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <%# containerで、全てのhtmlを中央寄せ %>
     <div class="container">
       <%= yield %>
     </div>
+
   </body>
+
 </html>

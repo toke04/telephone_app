@@ -1,6 +1,23 @@
-<h1 class="text-danger">ユーザー詳細</h1>
-<p>ユーザー名：<%= @user.name %></p>
-<p>内線番号<%= @user.src %></p>
-<p>email:<%= @user.email %></p>
-  <p><%= link_to "戻る", users_path(@user) %></p>
-  <p><%= link_to "ログアウトする", destroy_user_session_path(),method: :delete,data: {confirm: "ログアウトして大丈夫ですか?"}  %></p>
+<div class="text-center">
+  <%# 新規登録時のみ、flashメッセージを表示 %>
+  <h1 style="color:#ff3861">
+    <%= h(flash[:sip_regist_success]) if  !h(flash[:sip_regist_success]) .nil?  %>
+    </h1>
+  <h1 class="text-success">ユーザー詳細</h1>
+  <h2>ユーザー名：<%= @user.name %></h2>
+  <h2>内線番号<%= @user.src %></h2>
+  <h2>電話パスワード:<%= @user.telephone_pass %></h2>
+  <h2>メールアドレス:<%= @user.email %></h2>
+  <h2>入会日:<%= @user.created_at.to_s(:datetime_jp) %></h2>
+  <h2>電話サービス利用確認:<%= @sip_service_status %></h2>
+  <br>
+  <h2><%= link_to "ユーザー👨‍👨‍👦一覧へ", users_path(@user) %></h2>
+  <br>
+  <h2><%= link_to "音楽🎶を流す", {controller: "users", action: "autocall", user_id: @user.id} %></h2>
+  <h2><%= link_to "音楽を止める❌", {controller: "users", action: "stop_autocall", user_id: @user.id} %>
+  </h2>
+  <br>
+  <br>
+  <h2><%= link_to "ログアウトする", destroy_user_session_path(),method: :delete,data: {confirm: "ログアウトしてよろしいでしょうか?"}  %></h2>
+</div>
+

@@ -3,8 +3,16 @@ require "active_support/core_ext/integer/time"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  # Code is not reloaded between requests.
-  config.cache_classes = true
+   # デプロイ用の環境を指定
+  config.hosts << "telephone.tokeshi.cf"
+  host = 'localhost'
+  Rails.application.routes.default_url_options[:host] = host
+  config.hosts.clear
+  config.force_ssl = true # ssl通信を強制する
+
+  config.cache_classes = false
+
+  
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
@@ -62,7 +70,21 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "telephone_app_production"
 
-  config.action_mailer.perform_caching = false
+  # config.action_mailer.perform_caching = false
+  # パスワード再設定用の、メール送信の設定
+  config.action_mailer.perform_caching = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_url_options = { host: 'telephone.tokeshi.cf', port: 443 }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :enable_starttls_auto => true,
+    :address => "smtp.gmail.com",
+    :port => 587,
+    :domain => 'smtp.gmail.com',
+    :user_name => ENV["GOOGLE_MAIL_ADDRESS"],
+    :password => ENV["GOOGLE_MAILER_PASSWORD"],
+    :authentication => 'login'
+  }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.

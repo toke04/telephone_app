@@ -1,21 +1,25 @@
 <% provide(:title, 'All users') %>
-<h1>All users</h1>
-
-<table class="table table-hover">
+<h1 class="text-success">All users</h1>
+<table class="table table-striped" id="Table">
   <tbody >
     <thead>
-      <tr class="">
-        <th>入会順</th>
+      <tr class="text-primary">
         <th>名前</th>
         <th>内線番号</th>
+         <th>入会順</th>
+        <th>入会年月日</th>
       </tr>
     </thead>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.id %></td>
         <td><%= user.name %></td>
         <td><%= user.src %></td>
+        <td><%= user.id %></td>
+        <%# 日本時間で、登録年月日だけ、見やすく表示 %>
+        <td><%= user.created_at.to_s(:datetime_jp) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<%# kaminari＆bootstrapでページネーション %>
+<%= paginate @users, theme: 'bootstrap-5' %>

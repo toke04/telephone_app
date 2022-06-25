@@ -1,4 +1,5 @@
 <h1><%= t('.sign_in') %></h1>
+<%= render 'layouts/flash_messages' %>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
@@ -6,6 +7,8 @@
     <%= f.label :email %>
     <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control' %>
   </div>
+
+  <br>
 
   <div class="form-group">
     <%= f.label :password %>
@@ -22,8 +25,9 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.submit  t('.sign_in'), class: 'btn btn-primary' %>
+    <%= f.submit  t('.sign_in'), class: 'btn btn-success' %>
   </div>
 <% end %>
+<br>
 
 <%= render 'devise/shared/links' %>

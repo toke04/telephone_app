@@ -1,19 +1,5 @@
 # frozen_string_literal: true
-
-# Assuming you have not yet modified this file, each configuration option below
-# is set to its default value. Note that some are commented out while others
-# are not: uncommented lines are intended to protect your configuration from
-# breaking changes in upgrades (i.e., in the event that future versions of
-# Devise change the default values for those options).
-#
-# Use this hook to configure devise mailer, warden hooks and so forth.
-# Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
-  # The secret key used by Devise. Devise uses this key to generate
-  # random tokens. Changing this key will render invalid all existing
-  # confirmation, reset password and unlock tokens in the database.
-  # Devise will use the `secret_key_base` as its `secret_key`
-  # by default. You can change it below and use your own secret key.
   # config.secret_key = '672cf728dd60043ab8b6b1be9199e0c2b68f03de5eba5642f1b2a543778912601cdcf1d8a59f97533ec14a447961e278e5cfa8b59efdce3d3f05397ce64f1617'
 
   # ==> Controller configuration
@@ -24,7 +10,19 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  # config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  
+  #~~~ここからメール送信用の設定~~~
+  # メールを送信するアドレス
+  config.mailer_sender = ENV["GOOGLE_MAIL_ADDRESS"]
+  # パスワード再設定するためのキーカラム。
+  config.reset_password_keys = [:email]
+
+  # リセットパスワードキーを使ってパスワードをリセットできる時間間隔。
+  config.reset_password_within = 6.hours
+
+  #既定値はtrueで, リセットされた後に自動的にサインインする。
+  config.sign_in_after_reset_password = true
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'

@@ -1,20 +1,23 @@
 # config valid for current version and patch releases of Capistrano
+# Capistranoによる、自動デプロイ用の設定
 lock "~> 3.17.0"
 
 set :application, "telephone_app"
-set :repo_url, 'git@github.com:syo-tokeshi/telephone_app.git'
+set :repo_url, 'https://github.com/syo-tokeshi/telephone_app'
 set :branch, 'master'
 
 set :deploy_to, '/var/www/telephone_app'
+set :user, 'root'
+set :stage, 'production'
 
 # sharedディレクトリに入れるファイルを指定
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system", "public/uploads"
 
 # SSH接続設定
-set :ssh_options, {
-  auth_methods: ['publickey'], 
-  keys: ['~/.ssh/aws_ec2_tokeshi_key.pem'] 
-}
+# set :ssh_options, {
+#   auth_methods: ['publickey'], 
+#   keys: ['~/.ssh/aws_ec2_tokeshi_key.pem'] 
+# }
 
 # 保存しておく世代の設定
 set :keep_releases, 3
@@ -23,7 +26,7 @@ set :keep_releases, 3
 set :rbenv_type, :user
 set :rbenv_ruby, '3.1.2'
 
-# ここからUnicornの設定
+# ~~~ここからUnicornの設定~~~
 # Unicornのプロセスの指定
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 

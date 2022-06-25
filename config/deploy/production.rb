@@ -1,75 +1,47 @@
-# set :stage, :production
-# set :rails_env, 'production'
+# 本番環境用、デプロイの情報
+set :stage, :production
+set :rails_env, 'production'
 # server '3.113.53.220', user: 'root', roles: %w{app db web}
-server '3.113.53.220', user: 'ec2-user', roles: %w{app db web}
+
 # server '3.113.53.220',
 #   user: 'root',
 #   roles: %w{web app},
-#   ssh_options: {
-#     user: 'root', # overrides user setting above
-#     keys: %w(~/.ssh/id_rsa),
-#     forward_agent: false,
-#     auth_methods: %w(publickey password)
-#     # password: 'please use keys'
-#   }
+  # ssh_options {
+  #   user 'root'
+  #   keys: %w(~/.ssh/id_rsa),
+  #   forward_agent: false,
+  #   auth_methods: %w(publickey password)
+  #   # password: 'please use keys'
+  # }
+
 # set :ssh_options, {
-#   auth_methods: [ 'publickey' ],
-#   keys:         [ '~/.ssh/aws.pem' ],
+#   user: 'root',
+#   keys: %w(~/.ssh/aws_ec2_tokeshi_key.pem),
+#   forward_agent: true,
+#   auth_methods: %w(publickey)
+#   # password: 'please use keys'
 # }
-# set :branch, "master"
+set :branch, "master"
 # deploy先のサーバー情報
 # role :web, %w{ec2-user@3.113.53.220}
 # deployするディレクトリの場所
-# set :deploy_to, '/home/user/source'
-# deployするディレクトリの場所
-# set :deploy_to, '/var/www/telephone_app'
-
-
+set :deploy_to, '/var/www/telephone_app'
 # set :ssh_options, {
 #  keys: [File.expand_path('~/.ssh/aws_ec2_tokeshi_key.pem)')]
 # }
 
-# server-based syntax
-# ======================
-# Defines a single server with a list of roles and multiple properties.
-# You can define all roles on a single server, or split them:
 
 # server "example.com", user: "deploy", roles: %w{app db web}, my_property: :my_value
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 
-
-
 # role-based syntax
 # ==================
-
-# Defines a role with one or multiple servers. The primary server in each
-# group is considered to be the first unless any hosts have the primary
-# property set. Specify the username and a domain or IP for the server.
-# Don't use `:all`, it's a meta role.
-
 # role :app, %w{deploy@example.com}, my_property: :my_value
 # role :web, %w{user1@primary.com user2@additional.com}, other_property: :other_value
 # role :db,  %w{deploy@example.com}
 
-
-
-# Configuration
-# =============
-# You can set any configuration variable like in config/deploy.rb
-# These variables are then only loaded and set in this stage.
-# For available Capistrano configuration variables see the documentation page.
-# http://capistranorb.com/documentation/getting-started/configuration/
-# Feel free to add new variables to customise your setup.
-
-
-
 # Custom SSH Options
-# ==================
-# You may pass any option but keep in mind that net/ssh understands a
-# limited set of options, consult the Net::SSH documentation.
-# http://net-ssh.github.io/net-ssh/classes/Net/SSH.html#method-c-start
-#
 # Global options
 # --------------
 #  set :ssh_options, {

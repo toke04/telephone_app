@@ -2,16 +2,17 @@ require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  config.hosts << "telephone.tokeshi.cf"
-  config.hosts.clear
-  config.force_ssl = true
 
-  # In the development environment your application's code is reloaded any time
-  # it changes. This slows down response time but is perfect for development
-  # since you don't have to restart the web server when you make code changes.
+  # 環境を指定
+  config.hosts << "telephone.tokeshi.cf"
+  host = 'localhost'
+  Rails.application.routes.default_url_options[:host] = host
+  config.hosts.clear
+  config.force_ssl = true # ssl通信を強制する
+  config.assets.compile = true
+
   config.cache_classes = false
 
-  # Do not eager load code on boot.
   config.eager_load = false
 
   # Show full error reports.
@@ -20,8 +21,6 @@ Rails.application.configure do
   # Enable server timing
   config.server_timing = true
 
-  # Enable/disable caching. By default caching is disabled.
-  # Run rails dev:cache to toggle caching.
   if Rails.root.join("tmp/caching-dev.txt").exist?
     config.action_controller.perform_caching = true
     config.action_controller.enable_fragment_cache_logging = true
@@ -40,9 +39,26 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  # config.action_mailer.raise_delivery_errors = false
 
-  config.action_mailer.perform_caching = false
+  # config.action_mailer.perform_caching = false
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.default_url_options = { host: 'localhost', port: 443 }
+
+  # パスワード再設定用の、メール送信の設定
+  config.action_mailer.perform_caching = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_url_options = { host: 'telephone.tokeshi.cf', port: 443 }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :enable_starttls_auto => true,
+    :address => "smtp.gmail.com",
+    :port => 587,
+    :domain => 'smtp.gmail.com',
+    :user_name => ENV["GOOGLE_MAIL_ADDRESS"],
+    :password => ENV["GOOGLE_MAILER_PASSWORD"],
+    :authentication => 'login'
+  }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

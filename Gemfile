@@ -62,6 +62,7 @@ group :development do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
@@ -77,6 +78,7 @@ group :test do
   gem "webdrivers"
 end
 
+# ユニコーンを使用
 gem "unicorn"
 
 # ログイン機能
@@ -97,3 +99,11 @@ gem 'webpacker'
 # 隠しファイルを扱う
 gem 'dotenv'
 gem 'dotenv-rails'
+
+# for debug
+gem 'pry-byebug'
+gem 'pry-rails'
+
+# ページネーション
+gem 'kaminari'
+gem 'bootstrap5-kaminari-views'
