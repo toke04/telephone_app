@@ -11,13 +11,14 @@
   <h2>入会日:<%= @user.created_at.to_s(:datetime_jp) %></h2>
   <h2>電話サービス利用確認:<%= @sip_service_status %></h2>
   <br>
-  <h2><%= link_to "ユーザー👨‍👨‍👦一覧へ", users_path(@user) %></h2>
+  <h2><%= link_to "ユーザー👨‍👨‍👦一覧へ", users_path(@user),class: "fa-solid fa-people-group" %></h2>
   <br>
   <h2><%= link_to "音楽🎶を流す", {controller: "users", action: "autocall", user_id: @user.id} %></h2>
   <h2><%= link_to "音楽を止める❌", {controller: "users", action: "stop_autocall", user_id: @user.id} %>
   </h2>
   <br>
   <br>
+   <h2><%= link_to "編集する", edit_user_registration_path(),method: :delete,data: {confirm: "ログアウトしてよろしいでしょうか?"}  %></h2>
   <h2><%= link_to "ログアウトする", destroy_user_session_path(),method: :delete,data: {confirm: "ログアウトしてよろしいでしょうか?"}  %></h2>
 </div>
 
