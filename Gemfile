@@ -101,7 +101,6 @@ gem 'dotenv'
 gem 'dotenv-rails'
 
 # for debug
-gem 'pry-byebug'
 gem 'pry-rails'
 
 # ページネーション

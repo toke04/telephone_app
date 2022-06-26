@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def index
     # kaminariでページネーションを行う(引数が表示数)
-    @users = User.all.page(params[:page]).per(15)
+    @users = User.all.page(params[:page]).per(10)
   end
  
   def show

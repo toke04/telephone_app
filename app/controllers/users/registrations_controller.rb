@@ -8,7 +8,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def new
     #新規登録時に、登録ずみ電話番号を表示する際、使用
     @use_current_password = User.pluck(:src)
-    # logger.debug @use_current_password
+
+    # 先頭の文字列が「0」で始まったら、そのまま返却させる
+    # [reason] : to_i を行うと、0044 等が 0 になるので
+    @use_current_password.map!{|x|
+      if x.start_with?("0") 
+        x
+      else
+        x.to_i
+      end
+    }
+    
     super
   end
 
