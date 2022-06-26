@@ -18,7 +18,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
         x.to_i
       end
     }
-    
+
     super
   end
 
@@ -66,7 +66,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # サインアップ後に、flashメッセージを表示
   def after_sign_up_path_for(resource)
-    flash[:sip_regist_success] = "登録が完了しました。🎉電話サービスを使うことが出来ます。🎶"
+    flash[:sip_regist_success] = "電話サービスを使うことが出来ます。🎶"
     user_path(resource)
   end
 

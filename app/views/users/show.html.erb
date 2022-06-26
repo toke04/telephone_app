@@ -1,8 +1,6 @@
 <div class="text-center">
-  <%# 新規登録時のみ、flashメッセージを表示 %>
-  <h1 style="color:#ff3861">
-    <%= h(flash[:sip_regist_success]) if  !h(flash[:sip_regist_success]) .nil?  %>
-    </h1>
+  <%= render 'layouts/flash_messages' %>
+
   <h1 class="text-success">ユーザー詳細</h1>
   <h2>ユーザー名：<%= @user.name %></h2>
   <h2>内線番号<%= @user.src %></h2>
