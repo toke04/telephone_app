@@ -31,7 +31,7 @@ https://www.asterisk.org/get-started/
 * mysql 8.0.29
 * asterisk 18.12.1
 * Fail2Ban 0.11.2
-* インフラ aws(EC2)
+* webpacker 5.4.3
 
 # Usage
 
