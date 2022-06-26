@@ -23,6 +23,7 @@ https://www.asterisk.org/get-started/
 1. ほとんどの人がこのようなアプリを見たことがないと思います。
 2. asteriskについては情報も少ないので、作ろうと思っても簡単に作れないと思います。
 3. railsやmysqlと連携させるのも一苦労すると思われます。
+4. グローバルipを持つサーバーでasteriskを運営すると、たくさんの攻撃があるのですが、その対処の術等も、業務経験を通じて理解しております
 
 # Requirement
 
@@ -30,7 +31,8 @@ https://www.asterisk.org/get-started/
 * rails 7.0.3
 * mysql 8.0.29
 * asterisk 18.12.1
-* インフラ aws(EC2)
+* Fail2Ban 0.11.2
+* webpacker 5.4.3
 
 # Usage
 
