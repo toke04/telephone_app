@@ -4,12 +4,12 @@
 <%# 検索フォーム %>
 <%= search_form_for@search,url: users_path do |f| %>
    <div class="row justify-content-end"> <%# 右寄せにする %>
-    <div class="col-sm-10 col-lg-3">
+    <div class="col-10 col-sm-10 col-lg-3">
       <div class="form-group">
         <%= f.search_field :name_or_src_cont, placeholder: "名前 or 内線番号で部分一致検索", class: 'form-control text-center' %>
       </div>
     </div>
-    <div class="col-sm-2 col-lg-1 align-self-end">
+    <div class="col-2 col-sm-2 col-lg-1 align-self-end">
       <div class="form-group">
         <%= f.submit "検索", class: 'btn btn-info' %>
       </div>
@@ -41,3 +41,4 @@
 
 <%# kaminari＆bootstrapでページネーション %>
 <%= paginate @users, theme: 'bootstrap-5' %>
+
