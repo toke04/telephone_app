@@ -4,8 +4,8 @@ class UsersController < ApplicationController
   before_action :configure_sign_up_params, only: [:create]
 
   def index
-    # kaminariでページネーションを行う(引数が表示数)
-    @users = User.all.page(params[:page]).per(10)
+    @search = User.ransack(params[:q])
+    @users = @search.result.page(params[:page]).per(10)
   end
  
   def show

@@ -106,3 +106,6 @@ gem 'pry-rails'
 # ページネーション
 gem 'kaminari'
 gem 'bootstrap5-kaminari-views'
+
+# 検索用
+gem 'ransack'
