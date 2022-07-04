@@ -2,21 +2,58 @@
   <%= render 'layouts/flash_messages' %>
 
   <h1 class="text-success">ユーザー詳細</h1>
-  <h2>ユーザー名：<%= @user.name %></h2>
-  <h2>内線番号<%= @user.src %></h2>
-  <h2>電話パスワード:<%= @user.telephone_pass %></h2>
-  <h2>メールアドレス:<%= @user.email %></h2>
-  <h2>入会日:<%= @user.created_at.to_s(:datetime_jp) %></h2>
-  <h2>電話サービス利用確認:<%= @sip_service_status %></h2>
   <br>
-  <h2><%= link_to "ユーザー👨‍👨‍👦一覧へ", users_path(@user),class: "fa-solid fa-people-group" %></h2>
+  <table class="table table-striped table-bordered border-dark fs-2">
+    <tbody >
+        <tr>
+          <th style="color:#CC6699;">名前</th>
+          <td><%= @user.name %></td>
+        </tr>
+        <tr>
+          <th  style="color:#CC6699;">ユーザー名</th>
+          <td><%= @user.name %></td>
+        </tr>
+        <tr>
+          <th  style="color:#CC6699;">内線番号</th>
+          <td><%= @user.src %></td>
+        </tr>
+        <tr>
+          <th style="color:#CC6699;">電話パスワード</th>
+          <td><%= @user.telephone_pass %></td>
+        </tr>
+        <tr>
+          <th  style="color:#CC6699;">メールアドレス</th>
+          <td><%= @user.email %></td>
+        </tr>
+        <tr>
+          <th  style="color:#CC6699;">入会日</th>
+          <td><%=  @user.created_at.to_s(:datetime_jp) %></td>
+        </tr>
+        <tr>
+          <th  style="color:#CC6699;">電話サービス利用確認</th>
+          <td><%= @sip_service_status %></td>
+        </tr>
+    </tbody>
+  </table>
+
   <br>
-  <h2><%= link_to "音楽🎶を流す", {controller: "users", action: "autocall", user_id: @user.id} %></h2>
-  <h2><%= link_to "音楽を止める❌", {controller: "users", action: "stop_autocall", user_id: @user.id} %>
-  </h2>
+
+  <div class = "d-flex flex-row justify-content-center">
+    <br>
+    <h2><%= link_to "音楽♪を流す", {controller: "users", action: "autocall", user_id: @user.id},class: "btn btn-success btn-lg me-3" %></h2>
+    <h2><%= link_to "音楽を止める✋", {controller: "users", action: "stop_autocall", user_id: @user.id},class: "btn btn-danger btn-lg" %> </h2>
+  </div>
   <br>
   <br>
-   <h2><%= link_to "編集する", edit_user_registration_path(),method: :delete,data: {confirm: "ログアウトしてよろしいでしょうか?"}  %></h2>
-  <h2><%= link_to "ログアウトする", destroy_user_session_path(),method: :delete,data: {confirm: "ログアウトしてよろしいでしょうか?"}  %></h2>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class = "d-flex flex-row justify-content-end">
+   <h2><%= link_to "ユーザー👨‍👨‍👦一覧へ戻る", users_path(@user),class: "btn btn-primary btn-lg me-3" %></h2>
+    <h2><%= link_to "ユーザー情報を編集する", edit_user_registration_path(),method: :delete,data: {confirm: "ログアウトしてよろしいでしょうか?"},class: "btn btn-warning btn-lg  me-3"  %></h2>
+    <h2><%= link_to "ログアウトする", destroy_user_session_path(),method: :delete,data: {confirm: "ログアウトしてよろしいでしょうか?"},class: "btn btn-danger btn-lg"  %></h2>
+  </div>
+ 
 </div>
 
