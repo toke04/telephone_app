@@ -17,8 +17,8 @@ Rails.application.routes.draw do
 
   #独自に追加
   resources :users, :only => [:index,:show,:autocall]
-  get 'users/index'
-  get 'users/show'
-  get 'users/autocall/:id' => "users#autocall"
-  get 'users/stop_autocall/:id' => "users#stop_autocall"
+    get 'users/index'
+    get 'users/show'
+    get 'users/autocall/:id' => "users#autocall"
+    get 'users/stop_autocall/:id' => "users#stop_autocall"
 end
