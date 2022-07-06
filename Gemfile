@@ -51,6 +51,10 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem 'rspec-rails', '~> 5.0.0'
+  gem 'factory_bot_rails'
+  gem 'database_cleaner' #FactoryBot利用後のデータを削除
+  gem 'faker'
 end
 
 group :development do
@@ -62,6 +66,10 @@ group :development do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+
+  # テスト用
+  gem 'spring-commands-rspec'
+  gem 'rspec-queue'
   
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
