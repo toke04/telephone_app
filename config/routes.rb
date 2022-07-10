@@ -15,11 +15,10 @@ Rails.application.routes.draw do
     get "logout", :to => "users/sessions#destroy"
   end
 
-  resources :users, :only => [:index,:show,:autocall]
-   get 'users/index'
-   get 'users/show'
-   # 電話用
-   get 'users/autocall/:id' => "users#autocall"
-   get 'users/stop_autocall/:id' => "users#stop_autocall"
+  resources :users, :only => [:index,:show]
+  
+  # 電話用
+  get 'autocall' => "autocalls#autocall"
+  get 'stop_autocall' => "autocalls#stop_autocall"
    
 end

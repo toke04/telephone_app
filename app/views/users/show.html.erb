@@ -40,8 +40,8 @@
 
   <div class = "d-flex flex-row justify-content-center">
     <br>
-    <h2><%= link_to "音楽♪を流す", {controller: "users", action: "autocall", user_id: @user.id},class: "btn btn-success btn-lg me-3" %></h2>
-    <h2><%= link_to "音楽を止める✋", {controller: "users", action: "stop_autocall", user_id: @user.id},class: "btn btn-danger btn-lg" %> </h2>
+    <h2><%= link_to "音楽♪を流す", {controller: "autocalls", action: "autocall"},class: "btn btn-success btn-lg me-3" %></h2>
+    <h2><%= link_to "音楽を止める✋", {controller: "autocalls", action: "stop_autocall"},class: "btn btn-danger btn-lg" %> </h2>
   </div>
   <br>
   <br>
