@@ -41,5 +41,6 @@
 <br>
 <br>
 
- <%= link_to "アカウントを削除", registration_path(resource_name), data: { confirm: t('.本当によろしいですか？') }, method: :delete, class: 'btn btn-danger col' %>
-  <%= link_to t('マイページに戻る'), :back, class: 'btn btn-success col' %>
+<%= button_to "アカウントを削除", registration_path(resource_name), data: { confirm: t('.本当によろしいですか？') }, method: :delete, class: 'btn btn-danger col' %>
+ <br>
+<%= link_to t('マイページに戻る'), :back, class: 'btn btn-success col' %>
