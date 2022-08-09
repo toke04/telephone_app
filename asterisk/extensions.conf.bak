@@ -1,0 +1,17 @@
+; exten => _[0-9].,1,Dial(SIP/${EXTEN},10,r)
+; exten => _[0-9].,2,Hangup()
+; exten => 201,1,Dial(SIP/201,60,r)
+; exten => 201,n,Hangup()
+; exten => 202,1,Dial(SIP/201,60,r)
+; exten => 202,n,Hangup()
+; exten => 203,1,Dial(SIP/${EXTEN},60,r)
+; exten => 203,n,Hangup()
+; exten => _[0-9].,1,Dial(SIP/{EXTEN},60,r)
+; exten => _[0-9].,2,Hangup()
+; exten => 201,1,NoOp("--------------------${EXTEN}inbound_xdigit--------------------")
+; same => n,Goto(playsound_callee,${EXTEN},1)
+; exten => 202,1,Goto(playsound_callee,${EXTEN},1)
+; メイン処理。ここで毎回ランダムな秒数で音楽を流す
+; [playsound_callee]
+; exten => _[0-9].,1,Dial(SIP/{EXTEN},60,r)
+; exten => _[0-9].,2,Hangup()

@@ -1,0 +1,79 @@
+; [general]
+; context=default
+; port=5060
+; bindaddr=0.0.0.0
+; language=ja
+; nat=force_rport,comedia
+; ; ;パブリックIPを設定
+; external_media_address = 13.230.0.30
+; external_signaling_address = 13.230.0.30
+; ; ;プライベート IPを設定
+; local_net = 172.31.9.240/20
+
+; [201]
+; type=friend
+; defaultuser=201
+; secret=pass
+; host=dynamic
+; canreinvite=no
+
+; [202]
+; type=friend
+; defaultuser=202
+; secret=pass
+; host=dynamic
+; canreinvite=no
+
+; [203]
+; type=friend
+; defaultuser=203
+; secret=pass
+; host=dynamic
+; canreinvite=no
+; [general]
+; maxexpirey=3600
+; defaultexpirey=3600
+; context=default
+; port=5060
+
+; ; いつかport番号を変えるために
+; ; transport=udp
+; ; udpbindaddr=0.0.0.0:8668
+; bindaddr=0.0.0.0
+; srvlookup=yes
+; disallow=all
+; allow=ulaw
+; allow=alaw
+; allow=gsm
+; allowguest=no
+; language=ja
+; qualify=yes
+; rtptimeout=600
+; ; nat=force_rport,comedia
+; nat=yes
+; ;パブリックIPを設定
+; external_media_address = 13.230.0.30
+; external_signaling_address = 13.230.0.30
+; ;プライベート IPを設定
+; local_net = 172.31.9.240/20
+
+; [201]
+; type=friend
+; defaultuser=201
+; secret=pass
+; canreinvite=no
+; host=dynamic
+
+; [202]
+; type=friend
+; defaultuser=202
+; secret=pass
+; canreinvite=no
+; host=dynamic
+
+; [203]
+; type=friend
+; defaultuser=201
+; secret=pass
+; canreinvite=no
+; host=dynamic
